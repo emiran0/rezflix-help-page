@@ -1,0 +1,8 @@
+.venv/
+site/
+__pycache__/
+.cache/
+.DS_Store
+Thumbs.db
+CLAUDE.local.md
+.claude/
