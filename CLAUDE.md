@@ -8,14 +8,17 @@ when they need help, before contacting me directly.
 - **DNS:** Cloudflare (managed by me)
 - **Generator:** Material for MkDocs
 - **Rezflix services** follow the pattern `[service].rezflixtv.com`:
-  - **Jellyfin** ("Rezflix" to users): the streaming server (watching movies and TV shows)
-  - **Seerr** ("Rezflix Request" to users): where users request new movies and TV shows
-  - Exact subdomains: to be confirmed by me (see "Decisions log")
+  - **Jellyfin** ("Rezflix" to users): the streaming server, https://watch.rezflixtv.com
+  - **Seerr** ("Rezflix Request" to users): requests for new titles, https://request.rezflixtv.com
+- **Contact:** email `hello@rezflixtv.com` (public service address, fine to publish).
 
 ## Naming (user-facing)
 
 - **Rezflix:** the name users know for Jellyfin (the watch service). Use "Rezflix", not "Jellyfin".
 - **Rezflix Request:** the name users know for Seerr (the request service). Never say "Seerr".
+- **Rezflix Web:** the label for the link to https://watch.rezflixtv.com (Rezflix in the browser).
+  Readers are always in a browser, so this link opens the web version.
+- Links to the services open in a new tab (`target="_blank" rel="noopener"`).
 - Mention "Jellyfin" only where users must see the real name, for example installing the Jellyfin
   app from an app store. Explain it once there ("Rezflix runs on the Jellyfin app").
 
@@ -108,6 +111,7 @@ rezflix-help-page/
   .gitignore
   .gitattributes
   .github/workflows/deploy.yml
+  drafts/             Page drafts (gitignored, except _template.md)
   docs/
     en/               English pages, built to site/
       index.md
@@ -143,12 +147,23 @@ Manual steps for me (list them when relevant, do not attempt them):
 
 ## Images
 
-- Images live in the repo, in `docs/<lang>/assets/img/` or a per-section `img/` folder (I will
-  decide). Each language has its own copy, since screenshots may differ by language.
+- Format: PNG for screenshots (lossless, sharp text). Motion: GIF only for tiny clips (a few
+  seconds, small area), muted looping MP4 for anything longer.
+- Location and naming: `docs/<lang>/assets/img/<page>/<device>-<step>-<what>.<ext>`, for example
+  `docs/en/assets/img/quick-start/web-01-login.png`.
+  - Lowercase, hyphens only, ASCII letters and digits only (no spaces, no Turkish characters).
+  - `<page>` is the page file name without `.md`. `<step>` is two digits matching the step on
+    the page. `<what>` is a short description. Troubleshooting adds the topic before the step:
+    `web-subtitles-01-menu.png`.
+  - Devices: `web`, `android`, `ios`, `android-tv`, `apple-tv`, `fire-tv`, `smart-tv`,
+    `windows`, `macos`. Add new ones here when needed.
+  - A Turkish screenshot uses the same file name under `docs/tr/assets/img/`. If the screen
+    looks the same in both languages, copy the English file.
 - Relative paths, meaningful alt text, lazy loading:
-  `![Rezflix home screen](img/home.webp){ loading=lazy }`
-- Keep them small: max about 1600 px wide, compressed, WebP or optimized PNG.
-- Never modify or re-encode my images without asking. Suggest compression if a file is large.
+  `![Rezflix login screen](assets/img/quick-start/web-01-login.png){ loading=lazy }`
+- Keep them small: max about 1600 px wide. Suggest lossless optimization (ImageOptim, TinyPNG)
+  if a file is large.
+- Never modify or re-encode my images without asking.
 
 ## Look and theme
 
@@ -177,6 +192,20 @@ Manual steps for me (list them when relevant, do not attempt them):
 - Write English first. Turkish headings that are linked to get the English anchor explicitly,
   for example `## Giriş yapamıyorum { #i-cannot-log-in }`, so links match in both languages.
 - Turkish text written by Claude must be flagged for me to review.
+
+## Page creation pipeline
+
+1. Page map first: agree on the list of pages and how they link, before writing them.
+2. I write a draft in `drafts/<page>.md`, starting from `drafts/_template.md`. Drafts are
+   gitignored (only the template is committed). Rough notes are fine.
+3. Claude turns the draft into `docs/en/<page>.md`: applies the writing rules, links it into the
+   page tree and nav, adds a Turkish stub, and reports (a) claims that need my verification and
+   (b) the screenshots needed, with file names.
+4. Feedback rounds in the live preview until I approve the English page.
+5. Claude then translates it to `docs/tr/<page>.md` and flags it for my review.
+6. One commit per finished page.
+
+Drafts may contain private notes: never copy anything private from a draft into a published page.
 
 ## Writing rules (for the site content)
 
@@ -224,6 +253,8 @@ __pycache__/
 Thumbs.db
 CLAUDE.local.md
 .claude/
+drafts/*
+!drafts/_template.md
 ```
 
 `CLAUDE.md` is committed to the repo. `CLAUDE.local.md` and the `.claude/` folder (local settings
@@ -276,7 +307,11 @@ Add one dated line per decision, newest last.
 - 2026-10-12: Theme reworked to sleek and minimal: warm neutrals, one soft wine accent, Inter.
 - 2026-10-12: Theme simplified: Material defaults plus one wine color, warm dark mode, no Inter.
 - 2026-10-12: Theme: dark only, blackish background, faded greys, washed red on small details.
-- TBD: Rezflix and Rezflix Request subdomains (landing buttons link to `#` until then).
+- 2026-10-12: Rezflix at watch.rezflixtv.com, Rezflix Request at request.rezflixtv.com.
+- 2026-10-12: Landing button "Rezflix" renamed to "Rezflix Web". Service links open in a new tab.
+- 2026-10-12: Contact method: email hello@rezflixtv.com.
+- 2026-10-12: Page pipeline: page map, my draft in drafts/, Claude's pass, feedback, then Turkish.
+- 2026-10-12: Screenshots are PNG, named `<page>/<device>-<step>-<what>.png`. GIF only for tiny
+  clips, MP4 for longer motion.
 - TBD: Page names, nav structure, logo.
 - TBD: Recommended client apps per device.
-- TBD: Contact method.

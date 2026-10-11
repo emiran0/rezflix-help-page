@@ -6,3 +6,5 @@ __pycache__/
 Thumbs.db
 CLAUDE.local.md
 .claude/
+drafts/*
+!drafts/_template.md

@@ -13,12 +13,12 @@ Bu sitede nasıl başlayacağınızı, film ve dizileri nasıl izleyip isteyece�
 ## Rezflix bağlantılarınız
 
 <div class="rz-links" markdown="span">
-[:material-play-circle: Rezflix](#){ .md-button .md-button--primary }
-[:material-plus-circle: Rezflix Request](#){ .md-button }
+[:material-play-circle: Rezflix Web](https://watch.rezflixtv.com){ .md-button .md-button--primary target="_blank" rel="noopener" }
+[:material-plus-circle: Rezflix Request](https://request.rezflixtv.com){ .md-button target="_blank" rel="noopener" }
 </div>
 
-**Rezflix**, film ve dizi izlediğiniz yerdir. **Rezflix Request** ise yeni film ve dizi
-isteyebileceğiniz yerdir.
+**Rezflix Web**, film ve dizi izleyebileceğiniz Rezflix'i tarayıcınızda açar.
+**Rezflix Request** ise yeni film ve dizi isteyebileceğiniz yerdir. İkisi de yeni sekmede açılır.
 
 !!! tip "Belirli bir şey mi arıyorsunuz?"
 

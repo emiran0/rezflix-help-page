@@ -13,12 +13,12 @@ when something is not working.
 ## Your Rezflix links
 
 <div class="rz-links" markdown="span">
-[:material-play-circle: Rezflix](#){ .md-button .md-button--primary }
-[:material-plus-circle: Rezflix Request](#){ .md-button }
+[:material-play-circle: Rezflix Web](https://watch.rezflixtv.com){ .md-button .md-button--primary target="_blank" rel="noopener" }
+[:material-plus-circle: Rezflix Request](https://request.rezflixtv.com){ .md-button target="_blank" rel="noopener" }
 </div>
 
-**Rezflix** is where you watch movies and shows. **Rezflix Request** is where you ask for new
-movies and shows.
+**Rezflix Web** opens Rezflix in your browser, where you watch movies and shows.
+**Rezflix Request** is where you ask for new movies and shows. Both open in a new tab.
 
 !!! tip "Looking for something specific?"
 
