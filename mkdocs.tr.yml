@@ -1,0 +1,19 @@
+# Turkish build: inherits everything from mkdocs.yml and overrides the
+# language specific settings. Output goes to site/tr/.
+INHERIT: mkdocs.yml
+
+site_name: Rezflix Yardım
+site_url: https://help.rezflixtv.com/tr/
+site_description: Rezflix kullanıcıları için yardım merkezi.
+docs_dir: docs/tr
+site_dir: site/tr
+
+theme:
+  language: tr
+
+nav:
+  - Ana sayfa: index.md
+  - Hızlı başlangıç: quick-start.md
+  - Sorun giderme: troubleshooting.md
+  - SSS: faq.md
+  - İletişim: contact.md

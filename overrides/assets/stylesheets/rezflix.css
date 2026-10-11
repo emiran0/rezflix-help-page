@@ -1,0 +1,165 @@
+/*
+  Rezflix theme: dark and minimal. Blackish background, faded grey content,
+  washed dark red only on small details (icons, link underlines, hover, main button).
+*/
+
+[data-md-color-scheme="slate"] {
+  --rz-bg: #0e0e0f;
+  --rz-surface: #161617;
+  --rz-border: #26262a;
+  --rz-text: #bdbdc1;
+  --rz-heading: #e6e6e8;
+  --rz-muted: #85858b;
+  --rz-link: #d6d6d9;
+  --rz-red: #a8525c;
+  --rz-red-text: #c0707a;
+  --rz-red-button: #6e2f37;
+  --rz-red-button-hover: #803741;
+
+  --md-hue: 0;
+  --md-default-bg-color: var(--rz-bg);
+  --md-default-bg-color--light: #0e0e0fb3;
+  --md-default-bg-color--lighter: #0e0e0f4d;
+  --md-default-bg-color--lightest: #0e0e0f1f;
+  --md-default-fg-color: var(--rz-text);
+  --md-default-fg-color--light: var(--rz-muted);
+  --md-default-fg-color--lighter: #85858b80;
+  --md-default-fg-color--lightest: #ffffff12;
+
+  --md-primary-fg-color: var(--rz-bg);
+  --md-primary-fg-color--light: var(--rz-surface);
+  --md-primary-fg-color--dark: var(--rz-bg);
+  --md-primary-bg-color: var(--rz-heading);
+  --md-primary-bg-color--light: var(--rz-muted);
+  --md-accent-fg-color: var(--rz-red-text);
+  --md-accent-fg-color--transparent: #a8525c1a;
+  --md-accent-bg-color: var(--rz-heading);
+  --md-accent-bg-color--light: var(--rz-muted);
+
+  --md-typeset-color: var(--rz-text);
+  --md-typeset-a-color: var(--rz-link);
+  --md-code-bg-color: var(--rz-surface);
+  --md-code-fg-color: var(--rz-text);
+  --md-admonition-bg-color: var(--rz-surface);
+  --md-admonition-fg-color: var(--rz-text);
+  --md-footer-bg-color: var(--rz-bg);
+  --md-footer-bg-color--dark: var(--rz-bg);
+  --md-footer-fg-color: var(--rz-heading);
+  --md-footer-fg-color--light: var(--rz-muted);
+  --md-footer-fg-color--lighter: var(--rz-muted);
+}
+
+/* Headings are the brightest text on the page */
+.md-typeset :is(h1, h2, h3) {
+  color: var(--rz-heading);
+}
+
+/* Header and footer blend into the page, separated by a hairline */
+.md-header {
+  border-bottom: 0.05rem solid var(--rz-border);
+  box-shadow: none;
+}
+
+.md-footer {
+  border-top: 0.05rem solid var(--rz-border);
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__form,
+  .md-search__form:hover {
+    background-color: var(--rz-surface);
+  }
+}
+
+/* Links in text: light grey with a thin red underline, red on hover */
+.md-typeset :is(p, li) > a:not(.md-button) {
+  text-decoration: underline;
+  text-decoration-color: var(--rz-red);
+  text-underline-offset: 0.2em;
+}
+
+.md-typeset :is(p, li) > a:not(.md-button):is(:hover, :focus) {
+  color: var(--rz-red-text);
+}
+
+/* Buttons: one washed red button, the rest quiet grey outlines */
+.md-typeset .md-button {
+  color: var(--rz-link);
+  border-color: var(--rz-border);
+}
+
+.md-typeset .md-button:is(:hover, :focus) {
+  color: var(--rz-heading);
+  background-color: var(--rz-surface);
+  border-color: var(--rz-red);
+}
+
+.md-typeset .md-button--primary {
+  color: #f0eaea;
+  background-color: var(--rz-red-button);
+  border-color: var(--rz-red-button);
+}
+
+.md-typeset .md-button--primary:is(:hover, :focus) {
+  color: #f0eaea;
+  background-color: var(--rz-red-button-hover);
+  border-color: var(--rz-red-button-hover);
+}
+
+/* Cards: grey surface, red icon, red border on hover */
+.md-typeset .grid.cards > ul > li {
+  background-color: var(--rz-surface);
+  border-color: var(--rz-border);
+}
+
+.md-typeset .grid.cards > ul > li:is(:hover, :focus-within) {
+  border-color: var(--rz-red);
+  box-shadow: none;
+}
+
+.md-typeset .grid.cards > ul > li > hr {
+  border-color: var(--rz-border);
+}
+
+.md-typeset .grid.cards .lg {
+  color: var(--rz-red);
+}
+
+/* Tip and question boxes: grey surface, red icon, no colored title bar */
+.md-typeset :is(.admonition, details):is(.tip, .question) {
+  border-color: var(--rz-border);
+  box-shadow: none;
+}
+
+.md-typeset :is(.admonition, details):is(.tip, .question):focus-within {
+  border-color: var(--rz-red);
+  box-shadow: none;
+}
+
+.md-typeset :is(.tip, .question) > :is(.admonition-title, summary) {
+  background-color: transparent;
+}
+
+.md-typeset :is(.tip, .question) > :is(.admonition-title, summary)::before {
+  background-color: var(--rz-red);
+}
+
+.md-typeset :is(.tip, .question) > :is(.admonition-title, summary)::after {
+  color: var(--rz-muted);
+}
+
+/* Landing page service buttons: side by side on wide screens, stacked on phones */
+.md-typeset .rz-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.8rem;
+  margin: 1em 0;
+}
+
+.md-typeset .rz-links .md-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin: 0;
+}

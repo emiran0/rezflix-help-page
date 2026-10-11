@@ -24,7 +24,10 @@ jobs:
           python-version: "3.13"
           cache: pip
       - run: pip install -r requirements.txt
-      - run: mkdocs build --strict
+      - name: Build English site
+        run: mkdocs build --strict
+      - name: Build Turkish site
+        run: mkdocs build --strict -f mkdocs.tr.yml
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site

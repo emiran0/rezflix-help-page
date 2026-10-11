@@ -8,9 +8,16 @@ when they need help, before contacting me directly.
 - **DNS:** Cloudflare (managed by me)
 - **Generator:** Material for MkDocs
 - **Rezflix services** follow the pattern `[service].rezflixtv.com`:
-  - **Jellyfin:** the streaming server (watching movies and TV shows)
-  - **Seerr:** where users request new movies and TV shows
+  - **Jellyfin** ("Rezflix" to users): the streaming server (watching movies and TV shows)
+  - **Seerr** ("Rezflix Request" to users): where users request new movies and TV shows
   - Exact subdomains: to be confirmed by me (see "Decisions log")
+
+## Naming (user-facing)
+
+- **Rezflix:** the name users know for Jellyfin (the watch service). Use "Rezflix", not "Jellyfin".
+- **Rezflix Request:** the name users know for Seerr (the request service). Never say "Seerr".
+- Mention "Jellyfin" only where users must see the real name, for example installing the Jellyfin
+  app from an app store. Explain it once there ("Rezflix runs on the Jellyfin app").
 
 ## Audience
 
@@ -22,9 +29,16 @@ browsers, and streaming devices. Write for them, not for developers.
 These are the areas the site must cover. Page names, order, wording, look, and images are decided
 by me during development. Until I decide, use simple placeholders and do not invent final content.
 
-- **Quick start:** the fastest path from invite to watching.
-- **New user's guide:** what Rezflix is, the watch link and the request link, how to log in to each,
-  recommended client apps per device, how to use Jellyfin and how to request in Seerr.
+- **Landing page:** short intro, Rezflix and Rezflix Request buttons, search hint, cards
+  linking to the main sections, a "Common problems" list linking to troubleshooting entries, and a
+  pointer to contact.
+- **Quick start:** the single entry point for new users. Concise steps from invite to watching
+  (logging in, apps per device, watching, requesting). Each step links to a detail page instead
+  of explaining everything inline.
+- **Detail pages:** an expanding tree of short, focused, interlinked pages (for example one per
+  device app, player setting, or user setting), linked from Quick start and from each other, so
+  existing users can find one topic fast without reading new-user instructions. There is no
+  separate "New user's guide" page.
 - **Troubleshooting:** common problems and how users can try to fix them first: subtitles, video
   quality, playback errors and buffering, audio and subtitle language, login problems.
 - **FAQ and more:** to be defined later.
@@ -73,8 +87,11 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-- Preview: `mkdocs serve` (http://127.0.0.1:8000)
-- Check: `mkdocs build --strict` must pass with zero warnings before any task is called done.
+- Preview: `mkdocs serve --watch-theme` (English, http://127.0.0.1:8000),
+  `mkdocs serve --watch-theme -f mkdocs.tr.yml -a 127.0.0.1:8001` (Turkish, http://127.0.0.1:8001/tr/).
+  `--watch-theme` makes the preview reload on changes in `overrides/`.
+- Check: `mkdocs build --strict` and then `mkdocs build --strict -f mkdocs.tr.yml` must both pass
+  with zero warnings before any task is called done (English first, it cleans `site/`).
 - Keep everything cross-platform: relative paths, no OS-specific scripts unless asked,
   LF line endings (add a `.gitattributes` with `* text=auto eol=lf`).
 - The README must explain setup for macOS, Linux, and Windows.
@@ -84,16 +101,20 @@ pip install -r requirements.txt
 ```
 rezflix-help-page/
   README.md
-  mkdocs.yml
+  mkdocs.yml          English config (default)
+  mkdocs.tr.yml       Turkish config, INHERIT: mkdocs.yml
+  overrides/          Theme custom_dir (assets/stylesheets/rezflix.css)
   requirements.txt
   .gitignore
   .gitattributes
   .github/workflows/deploy.yml
   docs/
-    index.md
-    assets/
-      img/
-    (other pages to be decided)
+    en/               English pages, built to site/
+      index.md
+      assets/img/
+    tr/               Turkish pages, same file names, built to site/tr/
+      index.md
+      assets/img/
 ```
 
 ## GitHub Pages deployment
@@ -105,11 +126,12 @@ Use the current standard approach, nothing more:
   - Triggers: push to `main`, and `workflow_dispatch`.
   - Permissions: `contents: read`, `pages: write`, `id-token: write`. Concurrency group `pages`.
   - Build job: checkout, setup-python with pip cache, `pip install -r requirements.txt`,
-    `mkdocs build --strict`, upload `site/` with `actions/upload-pages-artifact`.
+    `mkdocs build --strict`, `mkdocs build --strict -f mkdocs.tr.yml`, upload `site/` with `actions/upload-pages-artifact`.
   - Deploy job: `actions/deploy-pages`, environment `github-pages`.
   - Use the current major version of each official action.
 - Custom domain `help.rezflixtv.com` is set in the repo's Pages settings. No `CNAME` file needed.
-- `site_url: https://help.rezflixtv.com/` in `mkdocs.yml`.
+- `site_url: https://help.rezflixtv.com/` in `mkdocs.yml`, `https://help.rezflixtv.com/tr/` in
+  `mkdocs.tr.yml`.
 
 Manual steps for me (list them when relevant, do not attempt them):
 1. Create the GitHub repo and push.
@@ -121,11 +143,40 @@ Manual steps for me (list them when relevant, do not attempt them):
 
 ## Images
 
-- Images live in the repo, in `docs/assets/img/` or a per-section `img/` folder (I will decide).
+- Images live in the repo, in `docs/<lang>/assets/img/` or a per-section `img/` folder (I will
+  decide). Each language has its own copy, since screenshots may differ by language.
 - Relative paths, meaningful alt text, lazy loading:
-  `![Jellyfin home screen](img/home.webp){ loading=lazy }`
+  `![Rezflix home screen](img/home.webp){ loading=lazy }`
 - Keep them small: max about 1600 px wide, compressed, WebP or optimized PNG.
 - Never modify or re-encode my images without asking. Suggest compression if a file is large.
+
+## Look and theme
+
+- Dark and minimal, dark only (no light mode, no toggle): `palette` is a single `slate` scheme.
+- Blackish background (never pure `#000`), faded grey content, and a washed dark red used only
+  on small details: card icons, box icons, link underlines, hover borders, and the one filled
+  button. Do not spread red to larger areas (header, titles, backgrounds).
+- All overrides live in one file, `overrides/assets/stylesheets/rezflix.css`
+  (`theme.custom_dir: overrides`, loaded with `extra_css`). Change colors through the `--rz-*`
+  tokens at the top of that file.
+- Tokens: background `#0e0e0f`, surface `#161617`, border `#26262a`, body text `#bdbdc1`,
+  headings `#e6e6e8`, muted `#85858b`, link text `#d6d6d9`, red `#a8525c` (icons, underlines,
+  borders), red text `#c0707a` (hover), button `#6e2f37` (hover `#803741`).
+- Header and footer match the background, separated by a hairline. Material's default font.
+- Restyle every admonition type the site uses (border, title, icon, arrow, focus glow), so no
+  default Material colors (green, blue, teal) show through.
+- Keep text contrast at WCAG AA (4.5:1) or better when changing colors.
+
+## Languages
+
+- English is the primary and default language, at the site root. Turkish is at `/tr/`.
+- Two separate builds with Material's language switcher (`extra.alternate`), no i18n plugin, so
+  the site stays compatible with Zensical.
+- Every page exists in both `docs/en/` and `docs/tr/` with the same file name and nav position,
+  so the switcher keeps readers on the same page. Untranslated pages get a Turkish stub.
+- Write English first. Turkish headings that are linked to get the English anchor explicitly,
+  for example `## Giriş yapamıyorum { #i-cannot-log-in }`, so links match in both languages.
+- Turkish text written by Claude must be flagged for me to review.
 
 ## Writing rules (for the site content)
 
@@ -134,6 +185,14 @@ Manual steps for me (list them when relevant, do not attempt them):
 - Admonitions for tips and warnings only where they help (`!!! tip`, `!!! warning`).
 - Troubleshooting entries: symptom as the heading or question, then "Try this" steps in order,
   simplest first, then "Still not working?" pointing to contact.
+- Interlink generously: link to the detail page instead of repeating its content. Links to page
+  sections (`page.md#heading`) are checked by the strict build (`validation: anchors: warn`).
+
+## No emojis
+
+No emojis anywhere in the project: no Unicode emoji characters and no emoji shortcodes such as
+`:smile:`. Plain monochrome SVG icons (`:material-...:`, `:octicons-...:`) are preferred for UI
+elements like cards and links; use them consistently throughout the site. Before finishing any task, check the repo for emojis and remove any found.
 
 ## No em dashes, anywhere
 
@@ -202,7 +261,22 @@ Add one dated line per decision, newest last.
 - 2026-10-12: Project created. Material for MkDocs, GitHub Pages via Actions, help.rezflixtv.com.
 - 2026-10-12: `CLAUDE.md` is committed and public. `CLAUDE.local.md` and `.claude/` stay ignored.
 - 2026-10-12: Stay on Material for MkDocs 9.7.7 (MkDocs 1.6.1) for now; revisit Zensical at beta.
-- TBD: Jellyfin and Seerr subdomains.
-- TBD: Page names, nav structure, look and colors, logo.
+- 2026-10-12: No separate New user's guide. Quick start is the concise entry point, linking to a
+  tree of short interlinked detail pages.
+- 2026-10-12: Landing page: intro, Watch and Request buttons, search hint, section cards, common
+  problems list, contact pointer.
+- 2026-10-12: No emojis anywhere. Plain Material SVG icons are used throughout.
+- 2026-10-12: Landing page common problems are collapsible, with a short fix and a link.
+- 2026-10-12: Turkish support at `/tr/` via two builds (`mkdocs.tr.yml`), no i18n plugin.
+- 2026-10-12: Jellyfin is called "Rezflix" and Seerr "Rezflix Request" in all user-facing text.
+- 2026-10-12: Theme: dark red and near-black, no pure black, custom CSS in `overrides/`.
+- 2026-10-12: Landing page service buttons fill the width, side by side or stacked on phones.
+- 2026-10-12: Third theme color: deep wine for header and footer, soft wine-tinted surfaces.
+- 2026-10-12: Wine is the only red; the brighter red is removed. Muted gold accent under test.
+- 2026-10-12: Theme reworked to sleek and minimal: warm neutrals, one soft wine accent, Inter.
+- 2026-10-12: Theme simplified: Material defaults plus one wine color, warm dark mode, no Inter.
+- 2026-10-12: Theme: dark only, blackish background, faded greys, washed red on small details.
+- TBD: Rezflix and Rezflix Request subdomains (landing buttons link to `#` until then).
+- TBD: Page names, nav structure, logo.
 - TBD: Recommended client apps per device.
 - TBD: Contact method.
