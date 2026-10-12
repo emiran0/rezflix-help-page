@@ -204,8 +204,9 @@ Manual steps for me (list them when relevant, do not attempt them):
    page tree and nav, adds a Turkish stub, and reports (a) claims that need my verification and
    (b) the screenshots needed, with file names.
 4. Feedback rounds in the live preview until I approve the English page.
-5. Claude then translates it to `docs/tr/<page>.md` and flags it for my review.
-6. One commit per finished page.
+5. One commit per finished English page. Turkish pages stay stubs meanwhile.
+6. Turkish comes last: once the English site is usable, Claude translates the pages to
+   `docs/tr/` and flags them for my review.
 
 Drafts may contain private notes: never copy anything private from a draft into a published page.
 
@@ -321,5 +322,6 @@ Add one dated line per decision, newest last.
 - 2026-10-12: Nested sidebar sections with `navigation.indexes`. A section is a folder with an
   `index.md` overview; sub-pages collapse under it. Apps is the first section (`apps/`).
 - 2026-10-12: Commit messages are a single short line, no body.
+- 2026-10-12: Turkish translation is done last, after the English site is usable.
 - TBD: Page names, nav structure, logo.
 - TBD: Recommended client apps per device.
