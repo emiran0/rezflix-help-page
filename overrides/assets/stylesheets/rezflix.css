@@ -73,13 +73,13 @@
 }
 
 /* Links in text: light grey with a thin red underline, red on hover */
-.md-typeset :is(p, li) > a:not(.md-button) {
+.md-typeset :is(p, li, td) > a:not(.md-button) {
   text-decoration: underline;
   text-decoration-color: var(--rz-red);
   text-underline-offset: 0.2em;
 }
 
-.md-typeset :is(p, li) > a:not(.md-button):is(:hover, :focus) {
+.md-typeset :is(p, li, td) > a:not(.md-button):is(:hover, :focus) {
   color: var(--rz-red-text);
 }
 
@@ -126,26 +126,26 @@
   color: var(--rz-red);
 }
 
-/* Tip, info, and question boxes: grey surface, red icon, no colored title bar */
-.md-typeset :is(.admonition, details):is(.tip, .info, .question) {
+/* Tip, info, warning, and question boxes: grey surface, red icon, no colored title bar */
+.md-typeset :is(.admonition, details):is(.tip, .info, .warning, .question) {
   border-color: var(--rz-border);
   box-shadow: none;
 }
 
-.md-typeset :is(.admonition, details):is(.tip, .info, .question):focus-within {
+.md-typeset :is(.admonition, details):is(.tip, .info, .warning, .question):focus-within {
   border-color: var(--rz-red);
   box-shadow: none;
 }
 
-.md-typeset :is(.tip, .info, .question) > :is(.admonition-title, summary) {
+.md-typeset :is(.tip, .info, .warning, .question) > :is(.admonition-title, summary) {
   background-color: transparent;
 }
 
-.md-typeset :is(.tip, .info, .question) > :is(.admonition-title, summary)::before {
+.md-typeset :is(.tip, .info, .warning, .question) > :is(.admonition-title, summary)::before {
   background-color: var(--rz-red);
 }
 
-.md-typeset :is(.tip, .info, .question) > :is(.admonition-title, summary)::after {
+.md-typeset :is(.tip, .info, .warning, .question) > :is(.admonition-title, summary)::after {
   color: var(--rz-muted);
 }
 
@@ -163,4 +163,59 @@
   justify-content: center;
   gap: 0.5em;
   margin: 0;
+}
+
+/* Apps page device cards: small "We recommend" label, the app as a full width outline
+   button with an arrow, an optional small note, and a small "See all" link */
+.md-typeset .grid.cards .rz-recommend-label {
+  margin-bottom: 0.4em;
+  font-size: 0.7rem;
+  color: var(--rz-muted);
+}
+
+.md-typeset .grid.cards :is(.rz-recommend-label, .rz-card-note) .twemoji {
+  color: var(--rz-red);
+}
+
+.md-typeset .grid.cards .md-button.rz-recommend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0.5em 1em;
+  background-color: var(--rz-bg);
+}
+
+.md-typeset .grid.cards .md-button.rz-recommend:is(:hover, :focus) {
+  background-color: var(--rz-bg);
+}
+
+.md-typeset .grid.cards .rz-card-note {
+  font-size: 0.7rem;
+  color: var(--rz-muted);
+}
+
+.md-typeset .grid.cards a.rz-see-all {
+  font-size: 0.7rem;
+  color: var(--rz-muted);
+}
+
+.md-typeset .grid.cards a.rz-see-all:is(:hover, :focus) {
+  color: var(--rz-red-text);
+}
+
+/* Tables fill the content width with equal columns, so stacked tables line up */
+.md-typeset .md-typeset__table {
+  display: block;
+}
+
+.md-typeset .md-typeset__table table:not([class]) {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Icons inside tables (the "We recommend" star) use the red accent */
+.md-typeset table:not([class]) .twemoji {
+  color: var(--rz-red);
 }

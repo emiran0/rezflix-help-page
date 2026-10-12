@@ -24,6 +24,15 @@ nav:
   - Quick start: quick-start.md
   - Apps:
       - apps/index.md
+      - All apps by device: apps/all-apps.md
+      - Findroid: apps/findroid.md
+      - Jellyfin Desktop: apps/jellyfin-desktop.md
+      - Jellyfin for LG TV: apps/jellyfin-lg-tv.md
+      - Jellyfin for Samsung TV: apps/jellyfin-samsung-tv.md
+      - Jellyfin Mobile: apps/jellyfin-mobile.md
+      - Moonfin: apps/moonfin.md
+      - Swiftfin: apps/swiftfin.md
+      - Wholphin: apps/wholphin.md
   - Settings: settings.md
   - How to request: requesting.md
   - Troubleshooting: troubleshooting.md

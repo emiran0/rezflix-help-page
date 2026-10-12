@@ -16,6 +16,15 @@ nav:
   - Hızlı başlangıç: quick-start.md
   - Uygulamalar:
       - apps/index.md
+      - Cihaza göre tüm uygulamalar: apps/all-apps.md
+      - Findroid: apps/findroid.md
+      - Jellyfin Desktop: apps/jellyfin-desktop.md
+      - Jellyfin for LG TV: apps/jellyfin-lg-tv.md
+      - Jellyfin for Samsung TV: apps/jellyfin-samsung-tv.md
+      - Jellyfin Mobile: apps/jellyfin-mobile.md
+      - Moonfin: apps/moonfin.md
+      - Swiftfin: apps/swiftfin.md
+      - Wholphin: apps/wholphin.md
   - Ayarlar: settings.md
   - Nasıl istek yapılır: requesting.md
   - Sorun giderme: troubleshooting.md

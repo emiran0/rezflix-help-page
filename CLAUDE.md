@@ -158,7 +158,8 @@ Manual steps for me (list them when relevant, do not attempt them):
     the page. `<what>` is a short description. Troubleshooting adds the topic before the step:
     `web-subtitles-01-menu.png`.
   - Devices: `web`, `android`, `ios`, `android-tv`, `apple-tv`, `fire-tv`, `smart-tv`,
-    `windows`, `macos`. Add new ones here when needed.
+    `samsung-tv`, `lg-tv`, `windows`, `macos`, `linux`. Add new ones here when needed. The same
+    slugs are the device anchors on app pages (`apps/wholphin.md#android-tv`).
   - A Turkish screenshot uses the same file name under `docs/tr/assets/img/`. If the screen
     looks the same in both languages, copy the English file.
 - Relative paths, meaningful alt text, lazy loading:
@@ -323,5 +324,22 @@ Add one dated line per decision, newest last.
   `index.md` overview; sub-pages collapse under it. Apps is the first section (`apps/`).
 - 2026-10-12: Commit messages are a single short line, no body.
 - 2026-10-12: Turkish translation is done last, after the English site is usable.
+- 2026-10-12: Apps structure: overview with device cards grouped as phones and tablets,
+  computers, and TVs; one page per app (`apps/<app>.md`, a section per device); one
+  `apps/all-apps.md` list with a heading per device. Cards link "We recommend" to the app's
+  device section and "See all" to the list.
+- 2026-10-12: Apps devices: iPhone and iPad, Android, Windows, macOS, Linux, Google TV and
+  Android TV, Apple TV, Samsung TV, LG TV.
+- 2026-10-12: All apps by device: one table per device (App, Tag, Good to know), the
+  recommended app first. Tables site-wide fill the content width with equal columns.
+- 2026-10-12: App pages: short intro and "Works on" line, then one self-contained section per
+  device (`#<device>`) with Install (`#<device>-install`), Connect to Rezflix
+  (`#<device>-connect`), and Good to know (`#<device>-good-to-know`, only when needed).
+- 2026-10-12: Recommended apps: iPhone and iPad Swiftfin (Jellyfin Mobile if downloads are
+  needed), Android Findroid, Windows and macOS Moonfin, Linux Jellyfin Desktop, Google TV
+  Wholphin, Apple TV Swiftfin, Samsung Jellyfin for Samsung TV, LG Jellyfin for LG TV (Moonfin
+  sideload on both TVs for advanced users only, until it is in their app stores).
+- 2026-10-12: App page names: Jellyfin Desktop (renamed from Jellyfin Media Player). The official
+  TV apps are named after the TV brand ("Jellyfin for Samsung TV", "Jellyfin for LG TV").
+- 2026-10-12: App choice on device cards is a full width outline button with an arrow.
 - TBD: Page names, nav structure, logo.
-- TBD: Recommended client apps per device.
