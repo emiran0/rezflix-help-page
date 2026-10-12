@@ -88,4 +88,4 @@ Bu sitede nasıl başlayacağınızı, film ve dizileri nasıl izleyip isteyece�
 
 ## Hâlâ yardıma mı ihtiyacınız var?
 
-Bu sayfalar sorununuzu çözmediyse [bana ulaşın](contact.md), size yardımcı olayım.
+Bu sayfalar sorununuzu çözmediyse [bize ulaşın](contact.md), size yardımcı olalım.

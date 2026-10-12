@@ -15,12 +15,17 @@ theme:
   features:
     - content.code.copy
     - navigation.footer
+    - navigation.indexes
     - search.suggest
     - search.highlight
 
 nav:
   - Home: index.md
   - Quick start: quick-start.md
+  - Apps:
+      - apps/index.md
+  - Settings: settings.md
+  - How to request: requesting.md
   - Troubleshooting: troubleshooting.md
   - FAQ: faq.md
   - Contact: contact.md

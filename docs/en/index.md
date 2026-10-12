@@ -88,4 +88,4 @@ when something is not working.
 
 ## Still need help?
 
-If these pages did not solve your problem, [contact me](contact.md) and I will help you out.
+If these pages did not solve your problem, [contact us](contact.md) and we will help you out.

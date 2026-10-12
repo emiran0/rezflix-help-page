@@ -40,6 +40,7 @@
   --md-typeset-a-color: var(--rz-link);
   --md-code-bg-color: var(--rz-surface);
   --md-code-fg-color: var(--rz-text);
+  --md-typeset-table-color: var(--rz-border);
   --md-admonition-bg-color: var(--rz-surface);
   --md-admonition-fg-color: var(--rz-text);
   --md-footer-bg-color: var(--rz-bg);
@@ -125,26 +126,26 @@
   color: var(--rz-red);
 }
 
-/* Tip and question boxes: grey surface, red icon, no colored title bar */
-.md-typeset :is(.admonition, details):is(.tip, .question) {
+/* Tip, info, and question boxes: grey surface, red icon, no colored title bar */
+.md-typeset :is(.admonition, details):is(.tip, .info, .question) {
   border-color: var(--rz-border);
   box-shadow: none;
 }
 
-.md-typeset :is(.admonition, details):is(.tip, .question):focus-within {
+.md-typeset :is(.admonition, details):is(.tip, .info, .question):focus-within {
   border-color: var(--rz-red);
   box-shadow: none;
 }
 
-.md-typeset :is(.tip, .question) > :is(.admonition-title, summary) {
+.md-typeset :is(.tip, .info, .question) > :is(.admonition-title, summary) {
   background-color: transparent;
 }
 
-.md-typeset :is(.tip, .question) > :is(.admonition-title, summary)::before {
+.md-typeset :is(.tip, .info, .question) > :is(.admonition-title, summary)::before {
   background-color: var(--rz-red);
 }
 
-.md-typeset :is(.tip, .question) > :is(.admonition-title, summary)::after {
+.md-typeset :is(.tip, .info, .question) > :is(.admonition-title, summary)::after {
   color: var(--rz-muted);
 }
 

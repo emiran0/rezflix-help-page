@@ -14,6 +14,10 @@ theme:
 nav:
   - Ana sayfa: index.md
   - Hızlı başlangıç: quick-start.md
+  - Uygulamalar:
+      - apps/index.md
+  - Ayarlar: settings.md
+  - Nasıl istek yapılır: requesting.md
   - Sorun giderme: troubleshooting.md
   - SSS: faq.md
   - İletişim: contact.md

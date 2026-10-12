@@ -115,6 +115,7 @@ rezflix-help-page/
   docs/
     en/               English pages, built to site/
       index.md
+      apps/           Nested section: index.md is the overview, sub-pages beside it
       assets/img/
     tr/               Turkish pages, same file names, built to site/tr/
       index.md
@@ -152,7 +153,8 @@ Manual steps for me (list them when relevant, do not attempt them):
 - Location and naming: `docs/<lang>/assets/img/<page>/<device>-<step>-<what>.<ext>`, for example
   `docs/en/assets/img/quick-start/web-01-login.png`.
   - Lowercase, hyphens only, ASCII letters and digits only (no spaces, no Turkish characters).
-  - `<page>` is the page file name without `.md`. `<step>` is two digits matching the step on
+  - `<page>` is the page file name without `.md`. For a page in a section folder it is the path,
+    for example `apps/google-tv` for `apps/google-tv.md`. `<step>` is two digits matching the step on
     the page. `<what>` is a short description. Troubleshooting adds the topic before the step:
     `web-subtitles-01-menu.png`.
   - Devices: `web`, `android`, `ios`, `android-tv`, `apple-tv`, `fire-tv`, `smart-tv`,
@@ -210,6 +212,7 @@ Drafts may contain private notes: never copy anything private from a draft into 
 ## Writing rules (for the site content)
 
 - Plain, friendly, short sentences. Lead with the answer, then details.
+- Voice: "we" across the whole site ("contact us", "we add your request"), never "I" or "me".
 - Numbered steps for procedures. One action per step.
 - Admonitions for tips and warnings only where they help (`!!! tip`, `!!! warning`).
 - Troubleshooting entries: symptom as the heading or question, then "Try this" steps in order,
@@ -234,7 +237,7 @@ any found.
 
 - Commit only when I ask. Push only when I ask.
 - Commit messages: Conventional Commits style, short and professional, imperative mood, subject
-  under about 60 characters, no trailing period. Add a body only when it adds real information.
+  under about 60 characters, no trailing period. One line only, never a body.
   Examples: `feat: add quick start page`, `fix: correct subtitle steps`, `docs: update readme`,
   `ci: add pages deploy workflow`, `chore: pin mkdocs-material version`.
 - Never mention Claude, Claude Code, Anthropic, or AI in commits, commit trailers, branch names,
@@ -313,5 +316,10 @@ Add one dated line per decision, newest last.
 - 2026-10-12: Page pipeline: page map, my draft in drafts/, Claude's pass, feedback, then Turkish.
 - 2026-10-12: Screenshots are PNG, named `<page>/<device>-<step>-<what>.png`. GIF only for tiny
   clips, MP4 for longer motion.
+- 2026-10-12: Site voice is "we" on every page, in English and Turkish.
+- 2026-10-12: Quick start links to Apps, Settings, and How to request (placeholder names).
+- 2026-10-12: Nested sidebar sections with `navigation.indexes`. A section is a folder with an
+  `index.md` overview; sub-pages collapse under it. Apps is the first section (`apps/`).
+- 2026-10-12: Commit messages are a single short line, no body.
 - TBD: Page names, nav structure, logo.
 - TBD: Recommended client apps per device.
