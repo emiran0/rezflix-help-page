@@ -4,11 +4,10 @@ hide:
   - toc
 ---
 
-# Rezflix Help
+# Hi Rez, welcome
 
-Welcome to the Rezflix help center. Rezflix is a private streaming service for friends and family.
-This site shows you how to get started, how to watch and request movies and shows, and what to do
-when something is not working.
+This is the Rezflix help center. It shows you how to get started, how to watch and request
+movies and shows, and what to do when something is not working.
 
 ## Your Rezflix links
 
@@ -58,31 +57,44 @@ when something is not working.
 
 ??? question "Subtitles are not showing"
 
-    Short fix coming soon.
+    Open the subtitles menu in the player and check that a track is selected. Try a different
+    track: tracks marked **Forced** only show some lines. No subtitles in your language? Use
+    **search subtitles** in the player, if your app has it.
 
     [:octicons-arrow-right-24: All steps for this problem](troubleshooting.md#subtitles-are-not-showing)
 
 ??? question "Video quality is low or blurry"
 
-    Short fix coming soon.
+    The video is probably being converted. In the player, choose **Original** or the highest
+    quality. In your app settings, set the bitrate to the **maximum**, even if it is on **Auto**.
 
     [:octicons-arrow-right-24: All steps for this problem](troubleshooting.md#video-quality-is-low-or-blurry)
 
-??? question "Video keeps buffering or will not play"
+??? question "Video will not play or shows an error"
 
-    Short fix coming soon.
+    Close and reopen the app, and make sure it is up to date. Then try the same title in
+    [Rezflix Web](https://watch.rezflixtv.com){ target="_blank" rel="noopener" }.
 
-    [:octicons-arrow-right-24: All steps for this problem](troubleshooting.md#video-keeps-buffering-or-will-not-play)
+    [:octicons-arrow-right-24: All steps for this problem](troubleshooting.md#video-will-not-play-or-shows-an-error)
+
+??? question "Video keeps buffering or freezing"
+
+    Check your internet first. Then, in the player, choose **Original** or the highest quality, and
+    in your app settings set the bitrate to the **maximum**, even if it is on **Auto**.
+
+    [:octicons-arrow-right-24: All steps for this problem](troubleshooting.md#video-keeps-buffering-or-freezing)
 
 ??? question "Wrong audio or subtitle language"
 
-    Short fix coming soon.
+    Pick your language in the audio and subtitles menus of the player. To make it automatic, set
+    your preferred languages in your [settings](settings.md#audio-and-subtitle-languages).
 
     [:octicons-arrow-right-24: All steps for this problem](troubleshooting.md#wrong-audio-or-subtitle-language)
 
 ??? question "I cannot log in"
 
-    Short fix coming soon.
+    Check the server address (`https://watch.rezflixtv.com`) and your password, including capital
+    letters. Do not keep guessing: too many tries can lock your account. We can reset it for you.
 
     [:octicons-arrow-right-24: All steps for this problem](troubleshooting.md#i-cannot-log-in)
 

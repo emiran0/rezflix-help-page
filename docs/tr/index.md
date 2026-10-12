@@ -4,11 +4,10 @@ hide:
   - toc
 ---
 
-# Rezflix Yardım
+# Merhaba Rez, hoş geldiniz
 
-Rezflix yardım merkezine hoş geldiniz. Rezflix, arkadaşlar ve aile için özel bir yayın hizmetidir.
-Bu sitede nasıl başlayacağınızı, film ve dizileri nasıl izleyip isteyeceğinizi ve bir şey
-çalışmadığında ne yapmanız gerektiğini bulabilirsiniz.
+Burası Rezflix yardım merkezi. Burada nasıl başlayacağınızı, film ve dizileri nasıl izleyip
+isteyeceğinizi ve bir şey çalışmadığında ne yapmanız gerektiğini bulabilirsiniz.
 
 ## Rezflix bağlantılarınız
 
@@ -68,11 +67,17 @@ Bu sitede nasıl başlayacağınızı, film ve dizileri nasıl izleyip isteyece�
 
     [:octicons-arrow-right-24: Bu sorun için tüm adımlar](troubleshooting.md#video-quality-is-low-or-blurry)
 
-??? question "Video sürekli takılıyor veya oynatılmıyor"
+??? question "Video oynatılmıyor veya hata veriyor"
 
     Kısa çözüm yakında eklenecek.
 
-    [:octicons-arrow-right-24: Bu sorun için tüm adımlar](troubleshooting.md#video-keeps-buffering-or-will-not-play)
+    [:octicons-arrow-right-24: Bu sorun için tüm adımlar](troubleshooting.md#video-will-not-play-or-shows-an-error)
+
+??? question "Video sürekli takılıyor veya donuyor"
+
+    Kısa çözüm yakında eklenecek.
+
+    [:octicons-arrow-right-24: Bu sorun için tüm adımlar](troubleshooting.md#video-keeps-buffering-or-freezing)
 
 ??? question "Ses veya altyazı dili yanlış"
 

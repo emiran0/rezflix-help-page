@@ -19,6 +19,7 @@ when they need help, before contacting me directly.
 - **Rezflix Web:** the label for the link to https://watch.rezflixtv.com (Rezflix in the browser).
   Readers are always in a browser, so this link opens the web version.
 - Links to the services open in a new tab (`target="_blank" rel="noopener"`).
+- **Rez:** what Rezflix users are called. The home page greets them with "Hi Rez, welcome".
 - Mention "Jellyfin" only where users must see the real name, for example installing the Jellyfin
   app from an app store. Explain it once there ("Rezflix runs on the Jellyfin app").
 
@@ -342,4 +343,16 @@ Add one dated line per decision, newest last.
 - 2026-10-12: App page names: Jellyfin Desktop (renamed from Jellyfin Media Player). The official
   TV apps are named after the TV brand ("Jellyfin for Samsung TV", "Jellyfin for LG TV").
 - 2026-10-12: App choice on device cards is a full width outline button with an arrow.
+- 2026-10-12: Troubleshooting is one page of app-agnostic entries (written for Jellyfin 12.2):
+  "Try these first" with the Rezflix Web test, entries grouped as Playback, Subtitles, Audio and
+  language, Account, Finding and requesting, then "Before you contact us". Every entry has an
+  explicit English anchor. Landing "buffering or will not play" split into two entries.
+- 2026-10-12: Slow, blurry, or freezing playback is explained as converting (transcoding) vs
+  direct play. Fix: choose Original or Direct in the player, and set the app's bitrate setting
+  to the maximum, even on Auto. Lower quality only as a last resort for slow internet.
+- 2026-10-12: Subtitle fixes mention the player's "search subtitles" option (Rezflix supports
+  it; not every app has it).
+- 2026-10-12: Links to unfinished pages point to a real heading there (for example
+  `settings.md#video-quality`), so they keep working once the page is written.
+- 2026-10-12: Users are called "Rez". Home page title: "Hi Rez, welcome".
 - TBD: Page names, nav structure, logo.
